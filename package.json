@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run lint && node src/app",
-    "lint": "npm run eslint src/*js --fix",
+    "lint": "eslint src/*.js --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
