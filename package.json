@@ -4,29 +4,30 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run lint && node src/app",
-    "lint": "eslint src/*.js --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LzrCampos/eslint-husky.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LzrCampos/eslint-husky/issues"
+  "dependencies": {
+    "express": "^4.17.1"
   },
-  "homepage": "https://github.com/LzrCampos/eslint-husky#readme",
   "devDependencies": {
     "eslint": "^6.5.1",
-    "husky": "^3.0.8"
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.8",
+    "lint-staged": "^9.4.1",
+    "prettier": "^1.18.2"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npx eslint --fix",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm test"
+      "pre-commit": "npx lint-staged"
     }
   }
 }
